@@ -1,0 +1,145 @@
+[2024-05-31T17:20:14.545437] (MONITOR) - == QWIC: QUIC Watchful Information Collector ==
+[2024-05-31T17:20:14.545508] (MONITOR) - | Settings:
+[2024-05-31T17:20:14.545529] (MONITOR) - |   - mode: SC
+[2024-05-31T17:20:14.545545] (MONITOR) - |   - interface: eth0
+[2024-05-31T17:20:14.545561] (MONITOR) - |   - monitor_file: monitor.log
+[2024-05-31T17:20:14.545579] (MONITOR) - |   - data_file: None
+[2024-05-31T17:20:14.545595] (MONITOR) - ===========================================
+[2024-05-31T17:20:14.545610] (MONITOR) - Initializing flags..
+[2024-05-31T17:20:14.545680] (MONITOR) - L30 aka PRINT_TIMES
+[2024-05-31T17:20:14.614661] (MONITOR) - Exiting...
+[2024-05-31T17:26:28.928722] (MONITOR) - == QWIC: QUIC Watchful Information Collector ==
+[2024-05-31T17:26:28.953508] (MONITOR) - | Settings:
+[2024-05-31T17:26:28.953559] (MONITOR) - |   - mode: SC
+[2024-05-31T17:26:28.953587] (MONITOR) - |   - interface: eth0
+[2024-05-31T17:26:28.953612] (MONITOR) - |   - monitor_file: monitor.log
+[2024-05-31T17:26:28.953641] (MONITOR) - |   - data_file: None
+[2024-05-31T17:26:28.953665] (MONITOR) - ===========================================
+[2024-05-31T17:26:28.953690] (MONITOR) - Initializing flags..
+[2024-05-31T17:26:28.953820] (MONITOR) - L30 aka PRINT_TIMES
+[2024-05-31T17:26:28.953929] (MONITOR) - P20 aka PARSE_FRAME
+[2024-05-31T17:26:28.954005] (MONITOR) - L10 aka PRINT_INFO
+[2024-05-31T17:26:28.954084] (MONITOR) - L20 aka PRINT_FRAMES
+[2024-05-31T17:26:28.954162] (MONITOR) - T10 aka TRACK_PACKET_COUNT
+[2024-05-31T17:26:28.954287] (MONITOR) - T20 aka TRACK_RTT
+[2024-05-31T17:26:28.954366] (MONITOR) - T30 aka TRACK_STREAMS
+[2024-05-31T17:26:28.954426] (MONITOR) - T40 aka TRACK_ACKS
+[2024-05-31T17:26:28.954484] (MONITOR) - T60 aka TRACK_CONN_ID
+[2024-05-31T17:26:28.954541] (MONITOR) - A10 aka ALERT_STREAM_COMMITMENT
+[2024-05-31T17:26:28.954599] (MONITOR) - A30 aka ALERT_SLOWLORIS
+[2024-05-31T17:26:28.954640] (MONITOR) - Injecting flags: 
+[2024-05-31T17:26:28.954704] (MONITOR) - Flag relations: ALERT_STREAM_COMMITMENT => TRACK_PACKET_COUNT; ALERT_STREAM_COMMITMENT => TRACK_STREAMS; ALERT_STREAM_COMMITMENT => TRACK_GARBAGE; ALERT_SLOWLORIS => TRACK_PACKET_COUNT; ALERT_SLOWLORIS => TRACK_STREAMS; TRACK_STREAMS => PARSE_FRAME; TRACK_ACKS => PARSE_FRAME; TRACK_GARBAGE => PARSE_FRAME; TRACK_CONN_ID => PARSE_FRAME; PRINT_INFO => SAVE_ADDITIONAL_INFO; PRINT_FRAMES => SAVE_ADDITIONAL_INFO; PRINT_FRAMES => PARSE_FRAME; 
+[2024-05-31T17:26:28.954738] (MONITOR) - Flags: PARSE_FRAME; TRACK_PACKET_COUNT; TRACK_RTT; TRACK_STREAMS; TRACK_ACKS; TRACK_GARBAGE; TRACK_CONN_ID; ALERT_STREAM_COMMITMENT; ALERT_SLOWLORIS; SAVE_ADDITIONAL_INFO; PRINT_INFO; PRINT_FRAMES; PRINT_TIMES; 
+[2024-05-31T17:26:28.954758] (MONITOR) - Preparing to sniff with scapy...
+[2024-05-31T17:26:28.954775] (MONITOR) - Starting scapy sniff, press Ctrl+C to stop
+[2024-05-31T17:26:33.486300] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for 00024a00010006488f5abac0fa000500084d696b
+[2024-05-31T17:26:33.790693] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '00024a00010006488f5abac0fa000500084d696b'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for 00024a00010006488f5abac0fa000500084d696b
+
+[2024-05-31T17:26:37.509119] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+[2024-05-31T17:26:37.510168] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '2d534541524348202a20485454502f312e310d0a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+
+[2024-05-31T17:26:38.513104] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+[2024-05-31T17:26:38.516826] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '2d534541524348202a20485454502f312e310d0a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+
+[2024-05-31T17:26:39.511642] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+[2024-05-31T17:26:39.513370] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '2d534541524348202a20485454502f312e310d0a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+
+[2024-05-31T17:26:40.512536] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+[2024-05-31T17:26:40.513741] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '2d534541524348202a20485454502f312e310d0a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for 2d534541524348202a20485454502f312e310d0a
+
+[2024-05-31T17:26:43.246586] (MONITOR) - An exception occurred during the parsing of a packet: No connection ID found for e001000001000000000000066d6f62696c650665
+[2024-05-31T17:26:43.249083] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 158, in parse_packet
+    key = connection_ids[quic_header['dest_conn_id']]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'e001000001000000000000066d6f62696c650665'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 39, in final_mw_parse_packet
+    info, local_state, cycles = parse_packet(
+                                ^^^^^^^^^^^^^
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/pparser.py", line 160, in parse_packet
+    raise ParsingException(f"No connection ID found for {quic_header['dest_conn_id']}")
+util.ParsingException: No connection ID found for e001000001000000000000066d6f62696c650665
+
+[2024-05-31T17:26:43.305966] (MONITOR) - [A10@('00', '')] Low average 1RTT length: 0
+[2024-05-31T17:26:43.377521] (MONITOR) - An exception has occurred: sequence item 0: expected str instance, dict found
+[2024-05-31T17:26:43.379613] (MONITOR) - Traceback (most recent call last):
+  File "/home/kali/Desktop/quic-go/QuicTest/qwic/src/main.py", line 76, in final_mw_parse_packet
+    print_data("".join(data))
+               ^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, dict found
+
+[2024-05-31T17:26:43.395538] (MONITOR) - Exiting...
